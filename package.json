@@ -3,7 +3,9 @@
   "version": "0.5.4",
   "description": "A string replace plugin for gulp",
   "dependencies": {
+    "html-parser": "^0.10.0",
     "istextorbinary": "1.0.2",
+    "parse5": "^3.0.2",
     "readable-stream": "^2.0.1",
     "replacestream": "^4.0.0"
   },

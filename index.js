@@ -3,7 +3,7 @@
 var Transform = require('readable-stream/transform');
 var rs = require('replacestream');
 var istextorbinary = require('istextorbinary');
-
+var parse5 = require('parse5');
 module.exports = function(search, replacement, options) {
   return new Transform({
     objectMode: true,
@@ -23,31 +23,10 @@ module.exports = function(search, replacement, options) {
             file.contents = new Buffer(String(file.contents).replace(search, replacement));
           }
           else {
-            var chunks = String(file.contents).split(search);
-
-            var result;
-            if (typeof replacement === 'function') {
-              // Start with the first chunk already in the result
-              // Replacements will be added thereafter
-              // This is done to avoid checking the value of i in the loop
-              result = [ chunks[0] ];
-
-              // The replacement function should be called once for each match
-              for (var i = 1; i < chunks.length; i++) {
-                // Add the replacement value
-                result.push(replacement(search));
-
-                // Add the next chunk
-                result.push(chunks[i]);
-              }
-
-              result = result.join('');
-            }
-            else {
-              result = chunks.join(replacement);
-            }
-
-            file.contents = new Buffer(result);
+            let htmlString = String(file.contents);
+            const cssExtenalLink = /(\s*<link.*(type="text\/css")+.*(href=(http[s]{0,1}:\/\/)|(\/\/)).*\n?)/mig;
+            htmlString = htmlString.replace(cssExtenalLink, '');
+            file.contents = new Buffer(htmlString);
           }
           return callback(null, file);
         }
