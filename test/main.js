@@ -1,26 +1,17 @@
 'use strict';
 var concatStream = require('concat-stream');
-var replacePlugin = require('../');
+var stripExternalCSSPlugin = require('../');
 var fs = require('fs');
 var should = require('should');
 var File = require('vinyl');
 describe('gulp-strip-external-css', function () {
-    describe('replacePlugin()', function () {
-        var replacements;
-        beforeEach(function () {
-            replacements = [
-                'cow',
-                'chicken',
-                'duck',
-                'person'
-            ];
-        });
+    describe('stripExternalCSS()', function () {
         describe('buffered input', function () {
             var file, check;
             beforeEach(function () {
                 file = new File({
-                    path: 'test/fixtures/helloworld.txt',
-                    contents: fs.readFileSync('test/fixtures/helloworld.txt')
+                    path: 'test/fixtures/lu.html',
+                    contents: fs.readFileSync('test/fixtures/lu.html')
                 });
                 check = function (stream, done, cb) {
                     stream.on('data', function (newFile) {
@@ -31,22 +22,14 @@ describe('gulp-strip-external-css', function () {
                     stream.end();
                 };
             });
-            it('should replace string on a buffer', function (done) {
-                var stream = replacePlugin('world', 'person');
+            it('should strip external css on a buffer', function (done) {
+                var stream = stripExternalCSSPlugin();
                 check(stream, done, function (newFile) {
-                    String(newFile.contents).should.equal(fs.readFileSync('test/expected/helloworld.txt', 'utf8'));
-                });
-            });
-            it('should call function once for each replacement when replacing a string on a buffer', function (done) {
-                var stream = replacePlugin('world', function () {
-                    return replacements.shift();
-                });
-                check(stream, done, function (newFile) {
-                    String(newFile.contents).should.equal(fs.readFileSync('test/expected/hellofarm.txt', 'utf8'));
+                    String(newFile.contents).should.equal(fs.readFileSync('test/expected/lu.html', 'utf8'));
                 });
             });
             it('should trigger events on a buffer', function (done) {
-                var stream = replacePlugin('world', 'elephant');
+                var stream = stripExternalCSSPlugin();
                 stream.on('finish', function () {
                     // No assertion required, we should end up here, if we don't the test will time out
                     done();
@@ -59,8 +42,8 @@ describe('gulp-strip-external-css', function () {
             var file, check;
             beforeEach(function () {
                 file = new File({
-                    path: 'test/fixtures/helloworld.txt',
-                    contents: fs.createReadStream('test/fixtures/helloworld.txt')
+                    path: 'test/fixtures/lu.html',
+                    contents: fs.createReadStream('test/fixtures/lu.html')
                 });
                 check = function (stream, done, cb) {
                     stream.on('data', function (newFile) {
@@ -73,10 +56,10 @@ describe('gulp-strip-external-css', function () {
                     stream.end();
                 };
             });
-            it('should replace regex on a stream', function (done) {
-                var stream = replacePlugin(/world/g, 'person');
+            it('should strip external css on a stream', function (done) {
+                var stream = stripExternalCSSPlugin();
                 check(stream, done, function (data) {
-                    data.should.equal(fs.readFileSync('test/expected/helloworld.txt', 'utf8'));
+                    data.should.equal(fs.readFileSync('test/expected/lu.html', 'utf8'));
                 });
             });
         });
@@ -84,7 +67,7 @@ describe('gulp-strip-external-css', function () {
             describe('skipBinary', function () {
                 var stream;
                 beforeEach(function () {
-                    stream = replacePlugin('world', 'person', { skipBinary: true });
+                    stream = stripExternalCSSPlugin({ skipBinary: true });
                 });
                 it('should ignore binary files when skipBinary is enabled', function (done) {
                     var file = new File({
@@ -98,14 +81,14 @@ describe('gulp-strip-external-css', function () {
                     stream.write(file);
                     stream.end();
                 });
-                it('should replace string on non binary files when skipBinary is enabled', function (done) {
+                it('should strip external css on non binary files when skipBinary is enabled', function (done) {
                     var file = new File({
-                        path: 'test/fixtures/helloworld.txt',
-                        contents: fs.createReadStream('test/fixtures/helloworld.txt')
+                        path: 'test/fixtures/lu.html',
+                        contents: fs.createReadStream('test/fixtures/lu.html')
                     });
                     stream.on('data', function (newFile) {
                         newFile.contents.pipe(concatStream({ encoding: 'string' }, function (data) {
-                            data.should.equal(fs.readFileSync('test/expected/helloworld.txt', 'utf8'));
+                            data.should.equal(fs.readFileSync('test/expected/lu.html', 'utf8'));
                             done();
                         }));
                     });

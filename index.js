@@ -1,7 +1,7 @@
 var Transform = require('readable-stream/transform');
 var rs = require('replacestream');
 var istextorbinary = require('istextorbinary');
-module.exports = function (search, replacement, options) {
+module.exports = function (options) {
     return new Transform({
         objectMode: true,
         transform: function (file, enc, callback) {

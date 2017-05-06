@@ -1,4 +1,4 @@
-# Replace file contents in place
+# Strip external css
 
 An example that shows how to strip external css.
 
@@ -7,23 +7,10 @@ An example that shows how to strip external css.
 Type the following commands from the root of this repository:
 
 ```
-npm install # install the plugin's dependencies
-cd examples/inplace
-npm install # install the example's dependencies
-cat file.txt # See original file contentes
+npm install
+cd examples/lu
+npm install
+cat lu.html # See original file contentes
 gulp
-cat file.txt # See changed file contents
-```
-You should see something like this:
-
-```js
-$ cat file.txt
-The roof is on fire!
-$ gulp
-[gulp] Starting 'replace'...
-[gulp] Finished 'replace' after 19 ms
-[gulp] Starting 'default'...
-[gulp] Finished 'default' after 8.01 μs
-$ cat file.txt
-The world is on fire!
+cat lu.html # See changed file contents
 ```
