@@ -1,12 +1,9 @@
 var gulp = require('gulp');
-/** REMOVE ME **/ var replace = require('../../');
-/** USE ME **/ // var replace = require('gulp-strip-external-css');
-
-gulp.task('replace', function() {
-  // Do an in-place replace on file.txt
-  return gulp.src('index.html', { base : './' } )
-    .pipe(replace('roof', 'world'))
-    .pipe(gulp.dest('./'));
+/** REMOVE ME **/ var stripExternalCSS = require('../../');
+/** USE ME **/ // var stripExternalCSS = require('gulp-strip-external-css');
+gulp.task('strip-external-css', function () {
+    return gulp.src('index.html', { base: './' })
+        .pipe(stripExternalCSS())
+        .pipe(gulp.dest('./'));
 });
-
-gulp.task('default', ['replace']);
+gulp.task('default', ['strip-external-css']);

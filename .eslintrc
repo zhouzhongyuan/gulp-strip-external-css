@@ -2,6 +2,7 @@
   "extends": "gulp",
   "rules": {
       "indent": ["off", 4],
-      "space-after-keywords": "off"
+      "space-after-keywords": "off",
+      "no-multiple-empty-lines": ["error", {"max": 0}]
   }
 }

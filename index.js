@@ -9,44 +9,37 @@ module.exports = function (search, replacement, options) {
             if (file.isNull()) {
                 return callback(null, file);
             }
-
             function doReplace() {
                 if (file.isStream()) {
                     file.contents = file.contents.pipe(rs(search, replacement));
                     return callback(null, file);
                 }
-
                 if (file.isBuffer()) {
                     if (search instanceof RegExp) {
                         file.contents = new Buffer(String(file.contents).replace(search, replacement));
                     } else {
-                        var htmlString = file.contents.toString();
-                        var exCSSReg = /(\s*<link.*(type="text\/css")+.*(href=(http[s]{0,1}:\/\/)|(\/\/)).*\n?)/mig;
+                        let htmlString = file.contents.toString();
+                        const exCSSReg = /(\s*<link.*(type="text\/css")+.*(href=(http[s]{0,1}:\/\/)|(\/\/)).*\n?)/mig;
                         htmlString = htmlString.replace(exCSSReg, '');
                         file.contents = new Buffer(htmlString);
                     }
                     return callback(null, file);
                 }
-
                 callback(null, file);
             }
-
             if (options && options.skipBinary) {
                 istextorbinary.isText(file.path, file.contents, function (err, result) {
                     if (err) {
                         return callback(err, file);
                     }
-
                     if (!result) {
                         callback(null, file);
                     } else {
                         doReplace();
                     }
                 });
-
                 return;
             }
-
             doReplace();
         }
     });
