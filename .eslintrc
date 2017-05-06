@@ -1,0 +1,7 @@
+{
+  "extends": "gulp",
+  "rules": {
+      "indent": ["off", 4],
+      "space-after-keywords": "off"
+  }
+}
