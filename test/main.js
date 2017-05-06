@@ -6,7 +6,7 @@ var fs = require('fs');
 var should = require('should');
 var File = require('vinyl');
 
-describe('gulp-replace', function() {
+describe('gulp-strip-external-css', function() {
   describe('replacePlugin()', function() {
     var replacements;
 

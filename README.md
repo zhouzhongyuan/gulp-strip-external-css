@@ -1,19 +1,19 @@
-# gulp-replace [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
-> A string replace plugin for gulp 3
+# gulp-strip-external-css [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
+> A exteral css deleting plugin for gulp
 
 ## Usage
 
-First, install `gulp-replace` as a development dependency:
+First, install `gulp-strip-external-css` as a development dependency:
 
 ```shell
-npm install --save-dev gulp-replace
+npm install --save-dev gulp-strip-external-css
 ```
 
 Then, add it to your `gulpfile.js`:
 
 ### Regex Replace
 ```javascript
-var replace = require('gulp-replace');
+var replace = require('gulp-strip-external-css');
 
 gulp.task('templates', function(){
   gulp.src(['file.txt'])
@@ -23,7 +23,7 @@ gulp.task('templates', function(){
 ```
 ### String Replace
 ```javascript
-var replace = require('gulp-replace');
+var replace = require('gulp-strip-external-css');
 
 gulp.task('templates', function(){
   gulp.src(['file.txt'])
@@ -35,7 +35,7 @@ gulp.task('templates', function(){
 
 ## API
 
-gulp-replace can be called with a string or regex.
+gulp-strip-external-css can be called with a string or regex.
 
 ### replace(string, replacement[, options])
 
@@ -61,7 +61,7 @@ Type: `String` or `Function`
 
 The replacement string or function. See the [MDN documentation for String.replace] for details.
 
-### gulp-replace options
+### gulp-strip-external-css options
 
 An optional third argument, `options`, can be passed.
 
@@ -78,7 +78,7 @@ Skip binary files
 [MDN documentation for RegExp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 [MDN documentation for String.replace]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_string_as_a_parameter
 
-[travis-url]: http://travis-ci.org/lazd/gulp-replace
-[travis-image]: https://secure.travis-ci.org/lazd/gulp-replace.svg?branch=master
-[npm-url]: https://npmjs.org/package/gulp-replace
-[npm-image]: https://badge.fury.io/js/gulp-replace.svg
+[travis-url]: http://travis-ci.org/lazd/gulp-strip-external-css
+[travis-image]: https://secure.travis-ci.org/lazd/gulp-strip-external-css.svg?branch=master
+[npm-url]: https://npmjs.org/package/gulp-strip-external-css
+[npm-image]: https://badge.fury.io/js/gulp-strip-external-css.svg

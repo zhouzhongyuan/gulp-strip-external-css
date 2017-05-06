@@ -1,11 +1,9 @@
 {
-  "name": "gulp-replace",
-  "version": "0.5.4",
-  "description": "A string replace plugin for gulp",
+  "name": "gulp-strip-external-css",
+  "version": "0.0.1",
+  "description": "A exteral css deleting plugin for gulp",
   "dependencies": {
-    "html-parser": "^0.10.0",
     "istextorbinary": "1.0.2",
-    "parse5": "^3.0.2",
     "readable-stream": "^2.0.1",
     "replacestream": "^4.0.0"
   },
@@ -20,16 +18,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/lazd/gulp-replace.git"
+    "url": "git://github.com/zhouzhongyuan/gulp-strip-external-css.git"
   },
   "keywords": [
     "gulpplugin",
-    "replace"
+    "strip",
+    "external",
+    "css"
   ],
-  "author": "Larry Davis <lazdnet@gmail.com>",
+  "author": "Zhongyuan <yawenzhongyuan@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lazd/gulp-replace/issues"
+    "url": "https://github.com/zhouzhongyuan/gulp-strip-external-css/issues"
   },
   "engines": {
     "node": ">=0.10"

@@ -1,6 +1,6 @@
 {
-  "name": "gulp-replace-inplace",
-  "description": "An example that shows how to search/replace a file in place",
+  "name": "gulp-strip-external-css-lu",
+  "description": "An example that shows how to strip external css",
   "version": "0.0.0",
   "main": "gulpfile.js",
   "devDependencies": {

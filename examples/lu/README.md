@@ -1,6 +1,6 @@
 # Replace file contents in place
 
-This example shows you how to replace file contents in place.
+An example that shows how to strip external css.
 
 ## Running the example
 
