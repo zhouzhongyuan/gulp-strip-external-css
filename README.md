@@ -1,4 +1,12 @@
 # gulp-strip-external-css
+<p align="center">
+ <a href="https://travis-ci.org/zhouzhongyuan/gulp-strip-external-css"><img src="https://travis-ci.org/zhouzhongyuan/gulp-strip-external-css.svg?branch=master" alt="Build Status"></a>
+ <a href="https://www.npmjs.com/package/gulp-strip-external-css"><img src="https://img.shields.io/npm/v/gulp-strip-external-css.svg?style=flat" alt="Version"></a>
+ <a href="https://www.npmjs.com/package/gulp-strip-external-css"><img src="https://img.shields.io/npm/dm/gulp-strip-external-css.svg" alt="Downloads Monthly"></a>
+ <a href="https://www.npmjs.com/package/gulp-strip-external-css"><img src="https://img.shields.io/npm/dt/gulp-strip-external-css.svg" alt="Downloads Totally"></a>
+ <a href="https://www.npmjs.com/package/gulp-strip-external-css"><img src="https://img.shields.io/npm/l/gulp-strip-external-css.svg" alt="License"></a>
+</p>
+
 > A exteral css deleting plugin for gulp
 
 ## Usage
