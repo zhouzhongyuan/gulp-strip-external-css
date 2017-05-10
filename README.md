@@ -1,4 +1,4 @@
-# gulp-strip-external-css [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
+# gulp-strip-external-css
 > A exteral css deleting plugin for gulp
 
 ## Usage
@@ -34,12 +34,3 @@ Type: `boolean`
 Default: `false`
 
 Skip binary files
-
-
-[MDN documentation for RegExp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
-[MDN documentation for String.replace]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_string_as_a_parameter
-
-[travis-url]: http://travis-ci.org/lazd/gulp-strip-external-css
-[travis-image]: https://secure.travis-ci.org/lazd/gulp-strip-external-css.svg?branch=master
-[npm-url]: https://npmjs.org/package/gulp-strip-external-css
-[npm-image]: https://badge.fury.io/js/gulp-strip-external-css.svg
